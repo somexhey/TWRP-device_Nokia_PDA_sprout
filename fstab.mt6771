@@ -1,0 +1,20 @@
+# mount point	fstype	device					device2				flags
+/boot           emmc    /dev/block/platform/bootdevice/by-name/boot          flags=slotselect
+/system         ext4	/dev/block/platform/bootdevice/by-name/system        flags=slotselect
+/system_image   emmc	/dev/block/platform/bootdevice/by-name/system        flags=slotselect
+/vendor         ext4	/dev/block/platform/bootdevice/by-name/vendor        flags=slotselect;display="Vendor";backup=1
+/vendor_image   emmc	/dev/block/platform/bootdevice/by-name/vendor        flags=slotselect
+/data           ext4	/dev/block/platform/bootdevice/by-name/userdata      flags=display="Data";backup=1;wipeingui;wipeduringfactoryreset;encryptable=/dev/block/platform/bootdevice/by-name/metadata
+/firmware       vfat	/dev/block/platform/bootdevice/by-name/modem         flags=slotselect;display="Firmware";mounttodecrypt;fsflags=ro
+/misc           emmc	/dev/block/platform/bootdevice/by-name/misc
+/modem          emmc	/dev/block/platform/bootdevice/by-name/modem         flags=slotselect;backup=1;display="Modem"
+/bluetooth      emmc	/dev/block/platform/bootdevice/by-name/bluetooth     flags=slotselect;backup=1;subpartitionof=/modem
+/dsp            emmc	/dev/block/platform/bootdevice/by-name/dsp           flags=slotselect;backup=1;subpartitionof=/modem
+/efs1           emmc	/dev/block/platform/bootdevice/by-name/modemst1      flags=backup=1;display=EFS
+/efs2           emmc	/dev/block/platform/bootdevice/by-name/modemst2      flags=backup=1;subpartitionof=/efs1
+/efsc           emmc	/dev/block/platform/bootdevice/by-name/fsc           flags=backup=1;subpartitionof=/efs1
+/efsg           emmc	/dev/block/platform/bootdevice/by-name/fsg           flags=backup=1;subpartitionof=/efs1
+
+# Removable storage
+/usbotg         vfat    /dev/block/sda*                             flags=fsflags=utf8;display="USB Storage";storage;wipeingui;removable
+/external_sd    vfat	/dev/block/mmcblk1*                         flags=display="External SDcard";storage;wipeingui;removable;backup=0
