@@ -16,5 +16,5 @@
 /efsg           emmc	/dev/block/platform/bootdevice/by-name/fsg           flags=backup=1;subpartitionof=/efs1
 
 # Removable storage
-/usbotg         vfat    /dev/block/sda*                             flags=fsflags=utf8;display="USB Storage";storage;wipeingui;removable
-/external_sd    vfat	/dev/block/mmcblk1*                         flags=display="External SDcard";storage;wipeingui;removable;backup=0
+/usbotg         vfat    /devices/platform/11200000.usb3_xhci*       flags=fsflags=utf8;display="USB Storage";storage;wipeingui;removable
+/external_sd    auto	/dev/block/mmcblk1p1                        flags=display="External SDcard";storage;wipeingui;removable;backup=0
